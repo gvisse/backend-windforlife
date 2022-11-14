@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include(('tag.urls', 'tag'), namespace='tag')),
     path('api/', include(('anemometer.urls', 'anemometer'), namespace='anemometer')),
     path('api/', include(('wind.urls', 'wind'), namespace='wind'))
