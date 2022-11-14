@@ -1,4 +1,4 @@
-from .views import WindViewSet
+from .views import WindViewSet, WindStatsView
 
 from django.urls import path, include
 
@@ -9,4 +9,5 @@ router.register('wind', WindViewSet, basename='wind')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('wind-stats/', WindStatsView.as_view()),
 ]
