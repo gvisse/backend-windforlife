@@ -1,15 +1,29 @@
+from datetime import datetime, timedelta
+
 from django.urls import reverse_lazy
-from rest_framework.test import APITestCase, APIClient
+from django.contrib.auth import get_user_model
+from django.db.models import Q, Avg
+from django.utils import timezone
+from rest_framework.test import APITestCase, APIClient, force_authenticate
 
 from .models import Anemometer
 from tag.models import Tag
+from wind.models import Wind
 
 class TestAnemometer(APITestCase):
+
+    url = reverse_lazy('anemometer:anemometer-list')
+
+    today_min = datetime.combine(timezone.now().date(), datetime.today().time().min)
+    today_max = datetime.combine(timezone.now().date(), datetime.today().time().max)
+
+    week_min = datetime.combine(timezone.now().date() - timedelta(weeks=1), (datetime.today()-timedelta(weeks=1)).time().min)
 
     client = APIClient()
 
     @classmethod
     def setUpTestData(cls):
+        cls.user = get_user_model().objects.create_user('user-test', 'user@user.com', 'user-test')
         cls.tag = Tag.objects.create(name='europe')
         cls.tag_2 = Tag.objects.create(name='lake')
         cls.tag_3 = Tag.objects.create(name='north america')
@@ -34,10 +48,20 @@ class TestAnemometer(APITestCase):
 
         cls.anemometer_without_tag = Anemometer.objects.create(name='Anémomètre test 0 tag', latitude=43.1000560, longitude=8.2688590, altitude=1)
 
+        cls.wind_1_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer)
+        cls.wind_1_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer)
+        cls.wind_1_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer)
+        cls.wind_2_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer_2)
+        cls.wind_2_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer_2)
+        cls.wind_2_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer_2)
+
     def get_tag_list_data(self, tags):
         return [{'id': tag.pk, 'name': tag.name} for tag in tags]
 
     def get_anemometer_list_data(self, anemometers):
+        mean_speed_today = Avg('winds__speed', filter=Q(winds__time__range=(self.today_min, self.today_max)))
+        mean_speed_week = Avg('winds__speed', filter=Q(winds__time__range=(self.week_min, self.today_max)))
+        anemometers = anemometers.annotate(mean_speed_today=mean_speed_today, mean_speed_week=mean_speed_week)
         return [
                 {
                     'id': anemometer.pk,
@@ -53,11 +77,13 @@ class TestAnemometer(APITestCase):
             for anemometer in anemometers]
 
     def test_list(self):
+        self.client.force_authenticate(user=self.user)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.get_anemometer_list_data(Anemometer.objects.all().order_by('id')), response.json()['results'])
 
     def test_create(self):
+        self.client.force_authenticate(user=self.user)
         anemo_count = Anemometer.objects.count()
         response = self.client.post(self.url, data={'name': 'Anémomètre test create', 'latitude': 18.1745, 'longitude': 52.4769, 'altitude': 5, 'tags': []}, format='json')
         # check status code of the creation without tags
@@ -70,6 +96,7 @@ class TestAnemometer(APITestCase):
         self.assertEqual(Anemometer.objects.count(), anemo_count + 2 )
 
     def test_update(self):
+        self.client.force_authenticate(user=self.user)
         expected = {
             'id': self.anemometer_without_tag.pk,
             'name': 'Test Update Anemometre',
@@ -100,6 +127,7 @@ class TestAnemometer(APITestCase):
             anemometer = Anemometer.objects.create(name=tags[i], latitude=i, longitude=i, altitude=1)
             anemometer.tags.set(Tag.objects.filter(name=tags[i]))
             anemometer.save()
+        self.client.force_authenticate(user=self.user)
         response = self.client.get('http://testserver/api/anemometer/?page=2')
         self.assertEqual(response.status_code, 200)
         anemometers = Anemometer.objects.filter(id__in=[anemometer.pk -1, anemometer.pk])
@@ -108,6 +136,7 @@ class TestAnemometer(APITestCase):
     def test_delete(self):
         self.assertEqual(self.anemometer.winds.count(), 3)
         self.assertEqual(Wind.objects.count(), 6)
+        self.client.force_authenticate(user=self.user)
         response = self.client.delete('http://testserver/api/anemometer/%d/' % self.anemometer.pk)
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Tag.objects.count(), 12)
@@ -115,6 +144,7 @@ class TestAnemometer(APITestCase):
         self.assertEqual(Wind.objects.count(), 3)
 
     def test_filter_with_tags(self):
+        self.client.force_authenticate(user=self.user)
         response = self.client.get('http://testserver/api/anemometer/', data={'tags': 'france'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.get_anemometer_list_data(Anemometer.objects.filter(id__in=[self.anemometer.id, self.anemometer_2.id])), response.json()['results'])
