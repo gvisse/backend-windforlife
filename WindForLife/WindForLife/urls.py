@@ -18,5 +18,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('tag.urls', namespace='tag'))
+    path('api/', include('tag.urls', namespace='tag')),
+    path('api/', include('anemometer.urls', namespace='anemometer'))
 ]
