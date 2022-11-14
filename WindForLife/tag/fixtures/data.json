@@ -1,0 +1,23 @@
+[
+    {
+        "model": "tag.tag",
+        "pk": 1,
+        "fields": {
+            "name": "mountain"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 2,
+        "fields": {
+            "name": "europe"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 3,
+        "fields": {
+            "name": "asia"
+        }
+    }
+]

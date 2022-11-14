@@ -1,0 +1,58 @@
+[
+    {
+        "model": "anemometer.anemometer",
+        "pk": 1,
+        "fields": {
+            "name": "Pic Mont-Blanc",
+            "latitude": "45.8336484",
+            "longitude": "6.8649547",
+            "altitude": 4810,
+            "tags": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "anemometer.anemometer",
+        "pk": 2,
+        "fields": {
+            "name": "Aiguille du midi (Mont-Blanc)",
+            "latitude": "45.8804146",
+            "longitude": "6.8874242",
+            "altitude": 3842,
+            "tags": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "model": "anemometer.anemometer",
+        "pk": 3,
+        "fields": {
+            "name": "Pic Everest",
+            "latitude": "27.9879017",
+            "longitude": "86.9253141",
+            "altitude": 8849,
+            "tags": [
+                1,
+                3
+            ]
+        }
+    },
+    {
+        "model": "anemometer.anemometer",
+        "pk": 4,
+        "fields": {
+            "name": "Pic Piton des neiges",
+            "latitude": "-21.0992850",
+            "longitude": "55.4802700",
+            "altitude": 3070,
+            "tags": [
+                1,
+                2
+            ]
+        }
+    }
+]
