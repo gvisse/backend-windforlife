@@ -1,2 +1,5 @@
 WindForLife/*/migrations/*.py
-
+WindForLife/*/__pycache__/
+WindForLife/*/__pycache__/*.pyc
+WindForLife/*/migrations/__pycache__/
+WindForLife/*/migrations/__pycache__/*.pyc
