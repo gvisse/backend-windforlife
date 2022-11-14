@@ -5,6 +5,7 @@ from anemometer.models import Anemometer
 class Wind(models.Model):
 
     class Meta:
+        db_table = 'api_wind'
         verbose_name = 'Mesure de vitesse du vent'
         unique_together = ['speed', 'time', 'anemometer']
 

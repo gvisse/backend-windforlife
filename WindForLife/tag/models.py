@@ -3,6 +3,7 @@ from django.db import models
 class Tag(models.Model):
 
     class Meta:
+        db_table = 'api_tag'
         verbose_name = 'Tag'
 
     name = models.CharField(verbose_name='nom', max_length=255, unique=True)

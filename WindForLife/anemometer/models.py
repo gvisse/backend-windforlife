@@ -3,6 +3,7 @@ from tag.models import Tag
 class Anemometer(models.Model):
 
     class Meta:
+        db_table = 'api_anemometer'
         verbose_name = 'Anemomètre'
         unique_together = ['latitude', 'longitude', 'altitude']
 
