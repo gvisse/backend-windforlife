@@ -4,6 +4,7 @@ from .serializers import WindSerializer, WindStatsSerializer
 from django.db.models import Avg, Min, Max, FloatField
 
 from rest_framework import views, viewsets, permissions
+from rest_framework.response import Response
 
 
 class WindViewSet(viewsets.ModelViewSet):
