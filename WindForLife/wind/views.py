@@ -1,5 +1,5 @@
 from .models import Wind
-from .serializers import WindSerializer
+from .serializers import WindSerializer, WindStatsSerializer
 
 from django.db.models import Avg, Min, Max, FloatField
 
