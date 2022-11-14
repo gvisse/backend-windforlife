@@ -7,12 +7,14 @@ from .models import Anemometer
 class AnemometerSerializer(serializers.ModelSerializer):
 
     tags = TagSerializer(many=True)
+    mean_speed_today = serializers.FloatField(read_only=True)
+    mean_speed_week = serializers.FloatField(read_only=True)
 
     class Meta:
         model = Anemometer
         fields = [
             'id', 'name', 'latitude', 'longitude',
-            'altitude', 'tags']
+            'altitude', 'tags', 'mean_speed_today', 'mean_speed_week']
 
     def validate_tags(self, data):
         return data 

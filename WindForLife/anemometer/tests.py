@@ -45,6 +45,8 @@ class TestAnemometer(APITestCase):
                     'latitude': format(anemometer.latitude, '.7f'),
                     'longitude': format(anemometer.longitude, '.7f'),
                     'altitude': anemometer.altitude,
+                    'mean_speed_today': anemometer.mean_speed_today,
+                    'mean_speed_week': anemometer.mean_speed_week,
                     'tags': self.get_tag_list_data(anemometer.tags.all())
                 }
             
