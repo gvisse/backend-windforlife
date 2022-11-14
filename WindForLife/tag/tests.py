@@ -1,4 +1,6 @@
-from rest_framework.test import APITestCase
+from rest_framework.test import APITestCase, APIClient
+
+from .models import Tag 
 
 class TestTag(APITestCase):
     url = reverse_lazy('tag-list')
