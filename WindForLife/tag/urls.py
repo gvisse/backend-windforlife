@@ -1,4 +1,4 @@
-from .views import *
+from .views import TagViewSet
 
 from django.urls import path, include
 
