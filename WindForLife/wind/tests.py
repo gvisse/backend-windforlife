@@ -10,13 +10,7 @@ from anemometer.models import Anemometer
 from tag.models import Tag
 
 
-class TestWind(APITestCase):
-    url = reverse_lazy('wind:wind-list')
-
-    today_min = datetime.combine(timezone.now().date(), datetime.today().time().min)
-    today_max = datetime.combine(timezone.now().date(), datetime.today().time().max)
-
-    week_min = datetime.combine(timezone.now().date() - timedelta(weeks=1), (datetime.today()-timedelta(weeks=1)).time().min)
+class WindTestCase(APITestCase):
 
     client = APIClient()
 
@@ -53,6 +47,10 @@ class TestWind(APITestCase):
                     'time': self.format_datetime(wind.time)
                 }
             for wind in winds]
+
+
+class TestWind(WindTestCase):
+    url = reverse_lazy('wind:wind-list')
 
     def test_list(self):
         self.client.force_authenticate(user=self.user)
@@ -95,3 +93,14 @@ class TestWind(APITestCase):
         response = self.client.get('http://testserver/api/wind/', data={'anemometer_id': self.anemometer.id})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.get_wind_list_data([self.wind_1_1, self.wind_1_2, self.wind_1_3]), response.json()['results'])
+
+
+class TestWindStats(WindTestCase):
+    url = reverse_lazy('wind:wind-stats')
+
+    def test_stats_all(self):
+        expected = {'min': 11, 'max': 13, 'mean': 12}
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get('http://testserver/api/wind-stats/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(expected, response.json())
