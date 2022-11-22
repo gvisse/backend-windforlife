@@ -10,7 +10,7 @@ class WindSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Wind
-        fields = ['speed', 'time', 'anemometer']
+        fields = ['id', 'speed', 'time', 'anemometer']
 
 class WindStatsSerializer(serializers.ModelSerializer):
 
