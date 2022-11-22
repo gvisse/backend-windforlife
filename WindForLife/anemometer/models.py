@@ -9,7 +9,7 @@ class Anemometer(models.Model):
 
     name = models.CharField(verbose_name='nom', max_length=255)
     latitude = models.DecimalField(verbose_name='latitude', max_digits=9, decimal_places=7, null=False)
-    longitude = models.DecimalField(verbose_name='longitude', max_digits=9, decimal_places=7, null=False)
+    longitude = models.DecimalField(verbose_name='longitude', max_digits=10, decimal_places=7, null=False)
     altitude = models.IntegerField(verbose_name='altitude(en m)', null=False)
     tags = models.ManyToManyField(Tag, related_name='tags')
 
