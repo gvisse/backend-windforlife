@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'tag',
     'anemometer',
-    'wind'
+    'wind',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -139,8 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'core.pagination.ResultsSetPagination',
     'TEST_REQUEST_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
