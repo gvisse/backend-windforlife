@@ -6,11 +6,14 @@ from rest_framework import serializers
 
 class WindSerializer(serializers.ModelSerializer):
 
-    anemometer = serializers.PrimaryKeyRelatedField(queryset=Anemometer.objects.all())
+    anemometer_id = serializers.PrimaryKeyRelatedField(queryset=Anemometer.objects.all())
 
     class Meta:
         model = Wind
-        fields = ['id', 'speed', 'time', 'anemometer']
+        fields = ['id', 'speed', 'time', 'direction', 'cardinal', 'anemometer_id']
+
+    def validate_anemometer_id(self, data):
+        return data.id
 
 class WindStatsSerializer(serializers.ModelSerializer):
 
