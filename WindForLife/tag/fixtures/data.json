@@ -3,21 +3,112 @@
         "model": "tag.tag",
         "pk": 1,
         "fields": {
-            "name": "mountain"
+            "name": "Mountain"
         }
     },
     {
         "model": "tag.tag",
         "pk": 2,
         "fields": {
-            "name": "europe"
+            "name": "Europe"
         }
     },
     {
         "model": "tag.tag",
         "pk": 3,
         "fields": {
-            "name": "asia"
+            "name": "Asia"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Desert"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 5,
+        "fields": {
+            "name": "Africa"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 6,
+        "fields": {
+            "name": "Egypt"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 7,
+        "fields": {
+            "name": "Tanzania"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 8,
+        "fields": {
+            "name": "Russia"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 9,
+        "fields": {
+            "name": "Nepali"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 10,
+        "fields": {
+            "name": "China"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 11,
+        "fields": {
+            "name": "France"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 12,
+        "fields": {
+            "name": "Italy"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 13,
+        "fields": {
+            "name": "Ouganda"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 14,
+        "fields": {
+            "name": "Congo"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 15,
+        "fields": {
+            "name": "Lighthouse"
+        }
+    },
+    {
+        "model": "tag.tag",
+        "pk": 16,
+        "fields": {
+            "name": "Himalaya"
         }
     }
 ]

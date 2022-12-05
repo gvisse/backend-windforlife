@@ -1,58 +1,171 @@
 [
-    {
-        "model": "anemometer.anemometer",
-        "pk": 1,
-        "fields": {
-            "name": "Pic Mont-Blanc",
-            "latitude": "45.8336484",
-            "longitude": "6.8649547",
-            "altitude": 4810,
-            "tags": [
-                1,
-                2
-            ]
-        }
-    },
-    {
-        "model": "anemometer.anemometer",
-        "pk": 2,
-        "fields": {
-            "name": "Aiguille du midi (Mont-Blanc)",
-            "latitude": "45.8804146",
-            "longitude": "6.8874242",
-            "altitude": 3842,
-            "tags": [
-                1,
-                2
-            ]
-        }
-    },
-    {
-        "model": "anemometer.anemometer",
-        "pk": 3,
-        "fields": {
-            "name": "Pic Everest",
-            "latitude": "27.9879017",
-            "longitude": "86.9253141",
-            "altitude": 8849,
-            "tags": [
-                1,
-                3
-            ]
-        }
-    },
-    {
-        "model": "anemometer.anemometer",
-        "pk": 4,
-        "fields": {
-            "name": "Pic Piton des neiges",
-            "latitude": "-21.0992850",
-            "longitude": "55.4802700",
-            "altitude": 3070,
-            "tags": [
-                1,
-                2
-            ]
-        }
+{
+    "model": "anemometer.anemometer",
+    "pk": 1,
+    "fields": {
+        "name": "Pic Mont-Blanc",
+        "latitude": "45.8336484",
+        "longitude": "6.8649547",
+        "altitude": 4810,
+        "tags": [
+            1,
+            2,
+            11,
+            12
+        ]
     }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 2,
+    "fields": {
+        "name": "Aiguille du midi (Mont-Blanc)",
+        "latitude": "45.8804146",
+        "longitude": "6.8874242",
+        "altitude": 3842,
+        "tags": [
+            1,
+            2,
+            11
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 3,
+    "fields": {
+        "name": "Pic Everest",
+        "latitude": "27.9879017",
+        "longitude": "86.9253141",
+        "altitude": 8849,
+        "tags": [
+            1,
+            3,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 4,
+    "fields": {
+        "name": "Pic Piton des neiges",
+        "latitude": "-21.0992850",
+        "longitude": "55.4802700",
+        "altitude": 3070,
+        "tags": [
+            1,
+            2,
+            11
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 5,
+    "fields": {
+        "name": "Ra's al �Alam",
+        "latitude": "24.8217774",
+        "longitude": "34.7952695",
+        "altitude": 653,
+        "tags": [
+            1,
+            4,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 6,
+    "fields": {
+        "name": "Pic Uhuru (Kilimandjaro)",
+        "latitude": "-3.0666171",
+        "longitude": "37.3419070",
+        "altitude": 5895,
+        "tags": [
+            1,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 7,
+    "fields": {
+        "name": "Elbrouz (Grand Caucase)",
+        "latitude": "43.3499373",
+        "longitude": "42.4365753",
+        "altitude": 5643,
+        "tags": [
+            1,
+            2,
+            8
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 8,
+    "fields": {
+        "name": "Manaslu (Himalaya)",
+        "latitude": "28.5497055",
+        "longitude": "84.5237982",
+        "altitude": 8163,
+        "tags": [
+            1,
+            3,
+            9
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 9,
+    "fields": {
+        "name": "Pic Marguerite (Mont Stanley)",
+        "latitude": "0.3856436",
+        "longitude": "29.8727613",
+        "altitude": 5109,
+        "tags": [
+            1,
+            5,
+            13,
+            14
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 10,
+    "fields": {
+        "name": "Phare Saint-Mathieu",
+        "latitude": "48.3299780",
+        "longitude": "-4.7916675",
+        "altitude": 58,
+        "tags": [
+            2,
+            11,
+            15
+        ]
+    }
+},
+{
+    "model": "anemometer.anemometer",
+    "pk": 11,
+    "fields": {
+        "name": "Phare des Baleines",
+        "latitude": "46.2441246",
+        "longitude": "-1.5634060",
+        "altitude": 60,
+        "tags": [
+            2,
+            11,
+            15
+        ]
+    }
+}
 ]
