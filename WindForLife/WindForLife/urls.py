@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from core.views import UserViewSet, UserLogIn
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/', include(router.urls)),
+    path('api/login/', UserLogIn.as_view()),
     path('api/', include(('tag.urls', 'tag'), namespace='tag')),
     path('api/', include(('anemometer.urls', 'anemometer'), namespace='anemometer')),
-    path('api/', include(('wind.urls', 'wind'), namespace='wind'))
+    path('api/', include(('wind.urls', 'wind'), namespace='wind')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
