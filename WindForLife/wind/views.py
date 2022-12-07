@@ -12,7 +12,7 @@ from rest_framework.response import Response
 class WindViewSet(viewsets.ModelViewSet):
 
     serializer_class = WindSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
     def get_queryset(self):
         queryset = Wind.objects.all()
@@ -24,7 +24,7 @@ class WindViewSet(viewsets.ModelViewSet):
 
 class WindStatsView(views.APIView):
 
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, *args, **kwargs):
         queryset = Wind.objects.all()

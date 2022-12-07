@@ -7,7 +7,7 @@ from django.db.models import Count
 class TagViewSet(viewsets.ModelViewSet):
 
     serializer_class = TagSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         return Tag.objects.all().annotate(anemos__count=Count('anemos')).order_by('name')

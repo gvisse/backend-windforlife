@@ -10,7 +10,7 @@ from rest_framework import viewsets, permissions
 class AnemometerViewSet(viewsets.ModelViewSet):
 
     serializer_class = AnemometerSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         # initialization of variables for time range
