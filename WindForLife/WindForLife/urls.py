@@ -15,18 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import UserViewSet, UserLogIn
 
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
+from rest_framework_jwt.blacklist.views import BlacklistView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api/login/', UserLogIn.as_view()),
+    ###
+    # Token simple jwt
+    ###
+    path('api/login/', obtain_jwt_token, name='api-token-auth'),
+    path('api/token/refresh/', refresh_jwt_token, name='api-token-refresh'),
+    path('api/token/verify/', verify_jwt_token, name='api-token-verify'),
+    path('api/logout/', BlacklistView.as_view({"post": "create"})),
+    # routes
     path('api/', include(('tag.urls', 'tag'), namespace='tag')),
     path('api/', include(('anemometer.urls', 'anemometer'), namespace='anemometer')),
     path('api/', include(('wind.urls', 'wind'), namespace='wind')),
