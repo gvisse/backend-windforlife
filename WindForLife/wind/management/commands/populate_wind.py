@@ -14,9 +14,10 @@ class Command(BaseCommand):
         anemometers = Anemometer.objects.all()
         for anemo in anemometers:
             created = 0
-            url_request = f'https://api.open-meteo.com/v1/forecast?latitude={anemo.latitude}&longitude={anemo.longitude}&hourly=windspeed_10m,winddirection_10m&windspeed_unit=kn&timezone=auto'
+            url_request = f'https://api.open-meteo.com/v1/forecast?latitude={anemo.latitude}&longitude={anemo.longitude}&hourly=windspeed_10m,winddirection_10m&windspeed_unit=kn&timezone=Europe%2FBerlin'
             response = requests.get(url_request)
             if response.status_code not in (200, 201):
+                print(response.json())
                 self.stdout.write(self.style.ERROR(f'Today\'s winds for {anemo} was unreachable'))
                 continue
             else:

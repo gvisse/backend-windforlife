@@ -103,5 +103,96 @@
 		"fields": {
 			"name": "Afrique"
 		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 16,
+		"fields": {
+			"name": "Désert"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 17,
+		"fields": {
+			"name": "Plateaux"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 18,
+		"fields": {
+			"name": "Côtes"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 19,
+		"fields": {
+			"name": "Aires migratoires"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 20,
+		"fields": {
+			"name": "Forêt tropicales"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 21,
+		"fields": {
+			"name": "Îles"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 22,
+		"fields": {
+			"name": "Régions polaires"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 23,
+		"fields": {
+			"name": "Steppes"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 24,
+		"fields": {
+			"name": "Ville"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 25,
+		"fields": {
+			"name": "Campagne"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 26,
+		"fields": {
+			"name": "Amérique du Nord"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 27,
+		"fields": {
+			"name": "Antarctique"
+		}
+	},
+	{
+		"model": "tag.tag",
+		"pk": 28,
+		"fields": {
+			"name": "Amérique du Sud"
+		}
 	}
 ]

@@ -323,5 +323,257 @@
 				14
 			]
 		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 21,
+		"fields": {
+			"name": "Campagne en Champagne-Ardennes",
+			"latitude": 48.866469,
+			"longitude": 4.607611,
+			"altitude": 0,
+			"tags": [
+				12,
+                25
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 22,
+		"fields": {
+			"name": "Campagne du Comté de Devon",
+			"latitude": 50.7228084,
+			"longitude": -3.8537984,
+			"altitude": 0,
+			"tags": [
+				12,
+                25
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 23,
+		"fields": {
+			"name": "Times Square",
+			"latitude": 40.7579747,
+			"longitude": -73.9877313,
+			"altitude": 0,
+			"tags": [
+				24,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 24,
+		"fields": {
+			"name": "Shibuya",
+			"latitude": 35.6668569,
+			"longitude": 139.6575965,
+			"altitude": 0,
+			"tags": [
+				13,
+                24
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 25,
+		"fields": {
+			"name": "Altaï",
+			"latitude": 48.9999992,
+			"longitude": 88.9912452,
+			"altitude": 0,
+			"tags": [
+				13,
+                23
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 26,
+		"fields": {
+			"name": "Steppes de la volga",
+			"latitude": 51.6038674,
+			"longitude": 32.4213338,
+			"altitude": 0,
+			"tags": [
+				12,
+                23
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 27,
+		"fields": {
+			"name": "Nuuk",
+			"latitude": 64.1790899,
+			"longitude": -51.776849,
+			"altitude": 0,
+			"tags": [
+				22,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 28,
+		"fields": {
+			"name": "Terre Adélie",
+			"latitude": -66.663045,
+			"longitude": 139.9997585,
+			"altitude": 0,
+			"tags": [
+				22,
+                27
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 29,
+		"fields": {
+			"name": "Île de Sainte-Marie",
+			"latitude": -16.912353,
+			"longitude": 49.7703725,
+			"altitude": 0,
+			"tags": [
+				15,
+                21
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 30,
+		"fields": {
+			"name": "Nusa Lembongan",
+			"latitude": -8.6788511,
+			"longitude": 115.4325504,
+			"altitude": 0,
+			"tags": [
+				14,
+                21
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 31,
+		"fields": {
+			"name": "Parc national de Manú",
+			"latitude": -12.0406493,
+			"longitude": -71.7275209,
+			"altitude": 0,
+			"tags": [
+				20,
+                28
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 32,
+		"fields": {
+			"name": "Forêt tropicale de Lopé",
+			"latitude": -0.2857819,
+			"longitude": 11.4201996,
+			"altitude": 0,
+			"tags": [
+				15,
+                20
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 33,
+		"fields": {
+			"name": "Refuge faunique national de Bosque del Apache",
+			"latitude": 33.8044951,
+			"longitude": -106.8955815,
+			"altitude": 0,
+			"tags": [
+				19,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 34,
+		"fields": {
+			"name": "Zone d'observation ornithologique de Cape May",
+			"latitude": 38.9380669,
+			"longitude": -74.9796533,
+			"altitude": 0,
+			"tags": [
+				19,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 35,
+		"fields": {
+			"name": "Plage de Huntington",
+			"latitude": 40.8968046,
+			"longitude": -73.4516099,
+			"altitude": 0,
+			"tags": [
+				18,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 36,
+		"fields": {
+			"name": "Costa Blanca",
+			"latitude": 38.3640811,
+			"longitude": -0.8816416,
+			"altitude": 0,
+			"tags": [
+				12,
+                18
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 37,
+		"fields": {
+			"name": "Désert des Mojaves",
+			"latitude": 35.0109903,
+			"longitude": -115.4821099,
+			"altitude": 0,
+			"tags": [
+				16,
+                26
+			]
+		}
+	},
+    {
+		"model": "anemometer.anemometer",
+		"pk": 38,
+		"fields": {
+			"name": "Désert du Sahara",
+			"latitude": 23.5487811,
+			"longitude": 25.863082,
+			"altitude": 0,
+			"tags": [
+				15,
+                16
+			]
+		}
 	}
 ]
