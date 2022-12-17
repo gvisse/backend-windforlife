@@ -1,171 +1,327 @@
 [
-{
-    "model": "anemometer.anemometer",
-    "pk": 1,
-    "fields": {
-        "name": "Pic Mont-Blanc",
-        "latitude": "45.8336484",
-        "longitude": "6.8649547",
-        "altitude": 4810,
-        "tags": [
-            1,
-            2,
-            11,
-            12
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 2,
-    "fields": {
-        "name": "Aiguille du midi (Mont-Blanc)",
-        "latitude": "45.8804146",
-        "longitude": "6.8874242",
-        "altitude": 3842,
-        "tags": [
-            1,
-            2,
-            11
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 3,
-    "fields": {
-        "name": "Pic Everest",
-        "latitude": "27.9879017",
-        "longitude": "86.9253141",
-        "altitude": 8849,
-        "tags": [
-            1,
-            3,
-            9,
-            10
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 4,
-    "fields": {
-        "name": "Pic Piton des neiges",
-        "latitude": "-21.0992850",
-        "longitude": "55.4802700",
-        "altitude": 3070,
-        "tags": [
-            1,
-            2,
-            11
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 5,
-    "fields": {
-        "name": "Ra's al �Alam",
-        "latitude": "24.8217774",
-        "longitude": "34.7952695",
-        "altitude": 653,
-        "tags": [
-            1,
-            4,
-            5,
-            6
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 6,
-    "fields": {
-        "name": "Pic Uhuru (Kilimandjaro)",
-        "latitude": "-3.0666171",
-        "longitude": "37.3419070",
-        "altitude": 5895,
-        "tags": [
-            1,
-            5,
-            7
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 7,
-    "fields": {
-        "name": "Elbrouz (Grand Caucase)",
-        "latitude": "43.3499373",
-        "longitude": "42.4365753",
-        "altitude": 5643,
-        "tags": [
-            1,
-            2,
-            8
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 8,
-    "fields": {
-        "name": "Manaslu (Himalaya)",
-        "latitude": "28.5497055",
-        "longitude": "84.5237982",
-        "altitude": 8163,
-        "tags": [
-            1,
-            3,
-            9
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 9,
-    "fields": {
-        "name": "Pic Marguerite (Mont Stanley)",
-        "latitude": "0.3856436",
-        "longitude": "29.8727613",
-        "altitude": 5109,
-        "tags": [
-            1,
-            5,
-            13,
-            14
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 10,
-    "fields": {
-        "name": "Phare Saint-Mathieu",
-        "latitude": "48.3299780",
-        "longitude": "-4.7916675",
-        "altitude": 58,
-        "tags": [
-            2,
-            11,
-            15
-        ]
-    }
-},
-{
-    "model": "anemometer.anemometer",
-    "pk": 11,
-    "fields": {
-        "name": "Phare des Baleines",
-        "latitude": "46.2441246",
-        "longitude": "-1.5634060",
-        "altitude": 60,
-        "tags": [
-            2,
-            11,
-            15
-        ]
-    }
-}
+	{
+		"model": "anemometer.anemometer",
+		"pk": 1,
+		"fields": {
+			"name": "Sommet Sud",
+			"latitude": 28.016936,
+			"longitude": 86.7938892,
+			"altitude": 7904,
+			"tags": [
+				1,
+				2
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 2,
+		"fields": {
+			"name": "Sommet Nord",
+			"latitude": 28.0128351,
+			"longitude": 86.8895433,
+			"altitude": 7020,
+			"tags": [
+				1,
+				2
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 3,
+		"fields": {
+			"name": "Lho La",
+			"latitude": 28.0069423,
+			"longitude": 86.8343698,
+			"altitude": 6006,
+			"tags": [
+				1,
+				2
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 4,
+		"fields": {
+			"name": "Sommet Uhuru",
+			"latitude": -3.066638,
+			"longitude": 37.315728,
+			"altitude": 5895,
+			"tags": [
+				1,
+				3,
+				15
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 5,
+		"fields": {
+			"name": "Sommet Mawenzi",
+			"latitude": -3.0756593,
+			"longitude": 37.3389351,
+			"altitude": 5149,
+			"tags": [
+				1,
+				3,
+				15
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 6,
+		"fields": {
+			"name": "Sommet Kibo",
+			"latitude": -3.0644096,
+			"longitude": 37.3233454,
+			"altitude": 5892,
+			"tags": [
+				1,
+				3,
+				15
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 7,
+		"fields": {
+			"name": "Refuge Independencia",
+			"latitude": -3.0655378,
+			"longitude": 37.3192058,
+			"altitude": 6546,
+			"tags": [
+				1,
+				4
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 8,
+		"fields": {
+			"name": "Piedras Blancas",
+			"latitude": -32.6531737,
+			"longitude": -70.0458012,
+			"altitude": 6100,
+			"tags": [
+				1,
+				4
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 9,
+		"fields": {
+			"name": "Sommet du Mont-Blanc du Tacul",
+			"latitude": 45.8566148,
+			"longitude": 6.8528853,
+			"altitude": 4248,
+			"tags": [
+				1,
+				5,
+				12
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 10,
+		"fields": {
+			"name": "Sommet du Mont-Blanc",
+			"latitude": 45.8326165,
+			"longitude": 6.8302413,
+			"altitude": 4807,
+			"tags": [
+				1,
+				5,
+				12
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 11,
+		"fields": {
+			"name": "Pic de l'Aiguille du Midi",
+			"latitude": 45.8957198,
+			"longitude": 6.8501593,
+			"altitude": 3842,
+			"tags": [
+				1,
+				5,
+				12
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 12,
+		"fields": {
+			"name": "Sommet du Mont Fuji",
+			"latitude": 35.4239747,
+			"longitude": 138.4599828,
+			"altitude": 3776,
+			"tags": [
+				1,
+				6,
+				13
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 13,
+		"fields": {
+			"name": "Sommet Occidental de l'Elbrouz",
+			"latitude": 43.334078,
+			"longitude": 42.4214658,
+			"altitude": 5643,
+			"tags": [
+				1,
+				7,
+				12
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 14,
+		"fields": {
+			"name": "Sommet Oriental de l'Elbrouz",
+			"latitude": 43.334078,
+			"longitude": 42.4214658,
+			"altitude": 5621,
+			"tags": [
+				1,
+				7,
+				12
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 15,
+		"fields": {
+			"name": "Sommet du Mont Wilhelm",
+			"latitude": -5.791595,
+			"longitude": 144.671886,
+			"altitude": 4509,
+			"tags": [
+				1,
+				8,
+				14
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 16,
+		"fields": {
+			"name": "Sommet du Mont Kinabalu",
+			"latitude": 6.0819845,
+			"longitude": 116.5234986,
+			"altitude": 4095,
+			"tags": [
+				1,
+				9,
+				13
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 17,
+		"fields": {
+			"name": "Sommet du Mont Tambuyukon",
+			"latitude": 6.2036098,
+			"longitude": 116.6242329,
+			"altitude": 2579,
+			"tags": [
+				1,
+				9,
+				13
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 18,
+		"fields": {
+			"name": "Sommet du Mont Kosciuszko",
+			"latitude": -36.455897,
+			"longitude": 148.2635987,
+			"altitude": 2228,
+			"tags": [
+				1,
+				10,
+				14
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 19,
+		"fields": {
+			"name": "Sommet du Mont Twynam",
+			"latitude": -35.8102491,
+			"longitude": 147.814183,
+			"altitude": 2195,
+			"tags": [
+				1,
+				10,
+				14
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 20,
+		"fields": {
+			"name": "Sommet du Mont Townsend",
+			"latitude": -36.422765,
+			"longitude": 148.2587273,
+			"altitude": 2209,
+			"tags": [
+				1,
+				10,
+				14
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 21,
+		"fields": {
+			"name": "Sommet du Mont Cook",
+			"latitude": -43.5803696,
+			"longitude": 170.0799072,
+			"altitude": 3724,
+			"tags": [
+				1,
+				11,
+				14
+			]
+		}
+	},
+	{
+		"model": "anemometer.anemometer",
+		"pk": 20,
+		"fields": {
+			"name": "Sommet du Mont Tasman",
+			"latitude": -41.1166609,
+			"longitude": 172.5325758,
+			"altitude": 3497,
+			"tags": [
+				1,
+				11,
+				14
+			]
+		}
+	}
 ]
