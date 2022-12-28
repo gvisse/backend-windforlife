@@ -28,12 +28,12 @@ class WindTestCase(APITestCase):
         cls.anemometer_2 = Anemometer.objects.create(name='Anémomètre test 2', latitude=45.1000001, longitude=8.2000001, altitude=1)
         cls.anemometer_2.tags.set(Tag.objects.filter(name='france'))
 
-        cls.wind_1_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer)
-        cls.wind_1_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer)
-        cls.wind_1_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer)
-        cls.wind_2_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer_2)
-        cls.wind_2_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer_2)
-        cls.wind_2_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer_2)
+        cls.wind_1_1 = Wind.objects.create(speed=11, direction=1, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer)
+        cls.wind_1_2 = Wind.objects.create(speed=12, direction=2, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer)
+        cls.wind_1_3 = Wind.objects.create(speed=13, direction=3, time=datetime.now(timezone.utc), anemometer=cls.anemometer)
+        cls.wind_2_1 = Wind.objects.create(speed=11, direction=1, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer_2)
+        cls.wind_2_2 = Wind.objects.create(speed=12, direction=2, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer_2)
+        cls.wind_2_3 = Wind.objects.create(speed=13, direction=3, time=datetime.now(timezone.utc), anemometer=cls.anemometer_2)
 
 
     def format_datetime(self, value):
@@ -42,9 +42,12 @@ class WindTestCase(APITestCase):
     def get_wind_list_data(self, winds):
         return [
                 {
-                    'anemometer' : wind.anemometer.pk,
+                    'id': wind.pk,
+                    'anemometer_id' : wind.anemometer.pk,
                     'speed': wind.speed,
-                    'time': self.format_datetime(wind.time)
+                    'time': self.format_datetime(wind.time),
+                    'direction': wind.direction,
+                    'cardinal': wind.cardinal
                 }
             for wind in winds]
 
@@ -61,9 +64,9 @@ class TestWind(WindTestCase):
     def test_create(self):
         wind_count = Wind.objects.count()
         self.client.force_authenticate(user=self.user)
-        response = self.client.post(self.url, data={'speed': 15, 'time': datetime.now(timezone.utc), 'anemometer': self.anemometer.pk}, format='json')
+        response = self.client.post(self.url, data={'speed': 15, 'time': datetime.now(timezone.utc), 'direction': 1, 'anemometer_id': self.anemometer.pk}, format='json')
         self.assertEqual(response.status_code, 201)
-        response = self.client.post(self.url, data={'speed': 15, 'time': datetime.now(timezone.utc), 'anemometer': None}, format='json')
+        response = self.client.post(self.url, data={'speed': 15, 'time': datetime.now(timezone.utc), 'direction': 1, 'anemometer_id': None}, format='json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(Wind.objects.count(), wind_count + 1)
 
@@ -71,9 +74,12 @@ class TestWind(WindTestCase):
         self.client.force_authenticate(user=self.user)
         data = {'speed' : 10.0}
         expected = {
+            'id': self.wind_1_1.pk,
             'speed' : 10.0,
             'time' : self.format_datetime(self.wind_1_1.time),
-            'anemometer' : self.wind_1_1.anemometer.id
+            'anemometer_id' : self.wind_1_1.anemometer.id,
+            'direction': self.wind_1_1.direction,
+            'cardinal': self.wind_1_1.cardinal
         }
         response = self.client.patch('http://testserver/api/wind/%d/' % self.wind_1_1.id, data=data, format='json')
         self.assertEqual(response.status_code, 200)

@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model
+from django.db.models import Count
 from rest_framework.test import APITestCase, APIClient, force_authenticate
 
 from .models import Tag
@@ -26,14 +27,14 @@ class TestTag(APITestCase):
         cls.tag_11 = Tag.objects.create(name='france')
         cls.tag_12 = Tag.objects.create(name='asia')
 
-        cls.tags_list_page2 = Tag.objects.filter(name__in=['france', 'asia'])
-        cls.tags_list_page1 = Tag.objects.exclude(name__in=['france', 'asia'])
+        cls.tags_list_page2 = Tag.objects.filter(name__in=['south-america', 'united states of america'])
+        cls.tags_list_page1 = Tag.objects.exclude(name__in=['south-america', 'united states of america'])
 
         cls.anemometer = Anemometer.objects.create(name='Anémomètre test', latitude=45.1000000, longitude=8.2000000, altitude=1)
         cls.anemometer.tags.set(cls.tags_list_page2)
 
     def get_tag_list_data(self, tags):
-        return [{'id': tag.pk, 'name': tag.name} for tag in tags]
+        return [{'id': tag.pk, 'name': tag.name, 'anemos__count': len(tag.anemos.all())} for tag in tags]
 
     def test_list(self):
         self.client.force_authenticate(user=self.user)
@@ -58,12 +59,12 @@ class TestTag(APITestCase):
         self.client.force_authenticate(user=self.user)
         response = self.client.patch('http://testserver/api/tag/%d/' % self.tag_3.pk, data={'name': 'north-america'})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual({'id': self.tag_3.pk, 'name': 'north-america'}, response.json())
+        self.assertEqual({'id': self.tag_3.pk, 'name': 'north-america', 'anemos__count': len(self.tag_3.anemos.all())}, response.json())
 
     def test_delete(self):
         self.assertEqual(self.anemometer.tags.count(), 2)
         self.client.force_authenticate(user=self.user)
-        response = self.client.delete('http://testserver/api/tag/%d/' % self.tag_12.pk)
+        response = self.client.delete('http://testserver/api/tag/%d/' % self.tag_5.pk)
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Tag.objects.count(), 11)
         self.assertEqual(self.anemometer.tags.count(), 1)

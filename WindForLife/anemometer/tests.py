@@ -48,12 +48,12 @@ class TestAnemometer(APITestCase):
 
         cls.anemometer_without_tag = Anemometer.objects.create(name='Anémomètre test 0 tag', latitude=43.1000560, longitude=8.2688590, altitude=1)
 
-        cls.wind_1_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer)
-        cls.wind_1_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer)
-        cls.wind_1_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer)
-        cls.wind_2_1 = Wind.objects.create(speed=11, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer_2)
-        cls.wind_2_2 = Wind.objects.create(speed=12, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer_2)
-        cls.wind_2_3 = Wind.objects.create(speed=13, time=datetime.now(timezone.utc), anemometer=cls.anemometer_2)
+        cls.wind_1_1 = Wind.objects.create(speed=11, direction=1, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer)
+        cls.wind_1_2 = Wind.objects.create(speed=12, direction=2, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer)
+        cls.wind_1_3 = Wind.objects.create(speed=13, direction=3, time=datetime.now(timezone.utc), anemometer=cls.anemometer)
+        cls.wind_2_1 = Wind.objects.create(speed=11, direction=1, time=datetime.now(timezone.utc) - timedelta(hours=2), anemometer=cls.anemometer_2)
+        cls.wind_2_2 = Wind.objects.create(speed=12, direction=2, time=datetime.now(timezone.utc) - timedelta(hours=1), anemometer=cls.anemometer_2)
+        cls.wind_2_3 = Wind.objects.create(speed=13, direction=3, time=datetime.now(timezone.utc), anemometer=cls.anemometer_2)
 
     def get_tag_list_data(self, tags):
         return [{'id': tag.pk, 'name': tag.name} for tag in tags]
