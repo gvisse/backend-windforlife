@@ -15,6 +15,7 @@ class WindSerializer(serializers.ModelSerializer):
     def validate_anemometer_id(self, data):
         return data.id
 
+
 class WindStatsSerializer(serializers.ModelSerializer):
 
     min = serializers.FloatField(read_only=True)

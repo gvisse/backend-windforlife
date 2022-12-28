@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
-from rest_framework_jwt.blacklist.views import BlacklistView
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
+from core.views import CustomTokenObtainPairView
 
 
 urlpatterns = [
@@ -25,10 +29,9 @@ urlpatterns = [
     ###
     # Token simple jwt
     ###
-    path('api/login/', obtain_jwt_token, name='api-token-auth'),
-    path('api/token/refresh/', refresh_jwt_token, name='api-token-refresh'),
-    path('api/token/verify/', verify_jwt_token, name='api-token-verify'),
-    path('api/logout/', BlacklistView.as_view({"post": "create"})),
+    path('api/login/', CustomTokenObtainPairView.as_view(), name='api-token-auth'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='api-token-refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='api-token-verify'),
     # routes
     path('api/', include(('tag.urls', 'tag'), namespace='tag')),
     path('api/', include(('anemometer.urls', 'anemometer'), namespace='anemometer')),
